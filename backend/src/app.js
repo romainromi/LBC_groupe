@@ -8,8 +8,9 @@ dotenv.config()
 
 
 const app = express()
-
 app.use(express.json())
+app.use(cors())
+app.use(helmet())
 
 app.get("/", (req, res) => {
     res.send('<h1> voila mon serveur !!! </h1>')
@@ -17,7 +18,5 @@ app.get("/", (req, res) => {
 
 app.use('/annonces', annonceRoutes)
 
-app.use(cors())
-app.use(helmet())
 
 export default app;
